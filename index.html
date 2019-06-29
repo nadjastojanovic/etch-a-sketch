@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Etch-a-Sketch</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Righteous|Skranji&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+
+        <center>
+            <div class="container row">
+                <div id="left" class="col-lg-6 col-md-6">
+                    <h1>Etch-a-Sketch</h1>
+                    <button onclick="makeGrid()">New grid</button>
+                    <button onclick="">Clear</button>
+                </div>
+                <div id="right" class="col-lg-6 col-md-6">
+                    <div id="grid-container"></div>
+                </div>
+            </div>
+        </center>
+
+        <script>
+
+            let grid = document.getElementById('grid-container');
+        
+            function makeGrid(){
+                
+                let gridSize = prompt("How many boxes per side should the grid have?");
+                grid.innerHTML = "";
+
+                let gridDimensions = 960 + gridSize;
+
+                grid.style.gridTemplateColumns = "";
+
+                for(let i = 0; i < gridSize*gridSize; i++){
+                    let box = document.createElement('div');
+                    box.classList.add("grid-item");
+
+                    let boxSize = 370 / gridSize;
+                    box.style.height = boxSize + "px";
+                    box.style.width = boxSize + "px";
+
+                    if(i < gridSize){
+                        grid.style.gridTemplateColumns += " auto";
+                    }
+                    grid.appendChild(box);
+                }
+
+                document.getElementById('grid-container').querySelectorAll('div').addEventListener("click", function(){
+                    document.getElementById('grid-container').querySelectorAll('div').style.backgroundColor = "purple";
+                });
+
+            }
+        
+        </script>
+
+    </body>
+
+</html>
