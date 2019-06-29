@@ -16,7 +16,7 @@
                 <div id="left" class="col-lg-6 col-md-6">
                     <h1>Etch-a-Sketch</h1>
                     <button onclick="makeGrid()">New grid</button>
-                    <button onclick="">Clear</button>
+                    <button onclick="clearGrid()">Clear</button>
                 </div>
                 <div id="right" class="col-lg-6 col-md-6">
                     <div id="grid-container"></div>
@@ -24,10 +24,19 @@
             </div>
         </center>
 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
         <script>
 
             let grid = document.getElementById('grid-container');
         
+            function clearGrid(){
+                let boxes = document.querySelectorAll('.grid-item');
+                boxes.forEach((box) => {
+                    box.style.backgroundColor = '#E1E7DE';
+                });
+    
+            }
+
             function makeGrid(){
                 
                 let gridSize = prompt("How many boxes per side should the grid have?");
@@ -50,9 +59,17 @@
                     }
                     grid.appendChild(box);
                 }
-
                 
+                colorBoxes();
+            }
 
+            function colorBoxes(){
+                let boxes = document.querySelectorAll('.grid-item');
+                boxes.forEach((box) => {
+                    box.addEventListener('mouseover', (e) => {
+                        e.target.style.backgroundColor = '#DBD77F'; 
+                    });
+                });
             }
         
         </script>
