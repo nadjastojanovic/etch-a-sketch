@@ -16,7 +16,9 @@
                 <div id="left" class="col-lg-6 col-md-6">
                     <h1>Etch-a-Sketch</h1>
                     <button onclick="makeGrid()">New grid</button>
-                    <button onclick="clearGrid()">Clear</button>
+                    <button onclick="clearGrid()">Clear</button><br>
+                    <button onclick="random()">Random Color</button>
+                    <button onclick="brush()">Brush</button>
                 </div>
                 <div id="right" class="col-lg-6 col-md-6">
                     <div id="grid-container"></div>
@@ -60,10 +62,10 @@
                     grid.appendChild(box);
                 }
                 
-                colorBoxes();
+                defaultColorBoxes();
             }
 
-            function colorBoxes(){
+            function defaultColorBoxes(){
                 let boxes = document.querySelectorAll('.grid-item');
                 boxes.forEach((box) => {
                     box.addEventListener('mouseover', (e) => {
@@ -71,6 +73,22 @@
                     });
                 });
             }
+
+            function randomColor(){
+                let color = "rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")";
+                return color;
+            }
+
+            function random(){
+                let boxes = document.querySelectorAll('.grid-item');
+                boxes.forEach((box) => {
+                    box.addEventListener('mouseover', (e) => {
+                        e.target.style.backgroundColor = "" + randomColor() + ""; 
+                    });
+                });
+            }
+
+            
         
         </script>
 

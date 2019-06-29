@@ -13,6 +13,7 @@ body {
     font-family: 'Skranji', sans-serif;
     color: #F9CA7F;
     font-size: 50px;
+    margin-top: 15vh;
 }
 
 button {
@@ -22,6 +23,7 @@ button {
     color: white !important;
     border: 0 !important;
     background-color: #5D9466;
+    margin-top: 5px !important;
 }
 
 /* Styling the grid */
